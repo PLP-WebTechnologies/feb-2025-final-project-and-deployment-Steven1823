@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories - ShopEase</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>ShopEase</h1>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="shop.html">Shop</a>
+                <a href="categories.html" class="active">Categories</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="nav-icons">
+                <a href="search.html"><i class="fas fa-search"></i></a>
+                <a href="account.html"><i class="fas fa-user"></i></a>
+                <a href="cart.html" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="categories-hero">
+            <div class="categories-content">
+                <h1>Our Categories</h1>
+                <p>Browse our handcrafted wooden products</p>
+            </div>
+        </section>
+
+        <section class="categories-grid">
+            <div class="container">
+                <div class="category-row">
+                    <div class="category-card large">
+                        <img src="images/wooden-table.jpg" alt="Furniture">
+                        <div class="category-content">
+                            <h2>Furniture</h2>
+                            <p>Handcrafted wooden furniture for your home</p>
+                            <a href="shop.html?category=furniture" class="category-link">View Collection</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="category-row">
+                    <div class="category-card">
+                        <img src="images/wooden-cutting-board.jpg" alt="Kitchen">
+                        <div class="category-content">
+                            <h3>Kitchen</h3>
+                            <p>Wooden kitchen accessories and utensils</p>
+                            <a href="shop.html?category=kitchen" class="category-link">View Collection</a>
+                        </div>
+                    </div>
+                    <div class="category-card">
+                        <img src="images/wooden-chair.jpg" alt="Storage">
+                        <div class="category-content">
+                            <h3>Storage</h3>
+                            <p>Custom storage solutions</p>
+                            <a href="shop.html?category=storage" class="category-link">View Collection</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="category-row">
+                    <div class="category-card">
+                        <img src="images/wooden-product.jpg" alt="Decor">
+                        <div class="category-content">
+                            <h3>Decor</h3>
+                            <p>Decorative wooden items</p>
+                            <a href="shop.html?category=decor" class="category-link">View Collection</a>
+                        </div>
+                    </div>
+                    <div class="category-card">
+                        <img src="images/wooden-shelf.jpg" alt="Outdoor">
+                        <div class="category-content">
+                            <h3>Outdoor</h3>
+                            <p>Weather-resistant wooden furniture</p>
+                            <a href="shop.html?category=outdoor" class="category-link">View Collection</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="category-features">
+            <div class="container">
+                <div class="features-grid">
+                    <div class="feature">
+                        <i class="fas fa-truck"></i>
+                        <h3>Free Shipping</h3>
+                        <p>On orders over $50</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-undo"></i>
+                        <h3>Easy Returns</h3>
+                        <p>30 days return policy</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-tools"></i>
+                        <h3>Custom Orders</h3>
+                        <p>Tailored to your needs</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-leaf"></i>
+                        <h3>Sustainable</h3>
+                        <p>Eco-friendly materials</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>About Us</h3>
+                    <p>ShopEase is your one-stop destination for all your shopping needs. We offer quality products at competitive prices.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="shipping.html">Shipping Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Shopping St, Retail City</li>
+                        <li><i class="fas fa-phone"></i> +254 768 388 357</li>
+                        <li><i class="fas fa-envelope"></i> stevekingoro@gmail.com</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Newsletter</h3>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email">
+                        <button type="submit">Subscribe</button>
+                    </form>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 ShopEase. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 

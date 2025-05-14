@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Name - ShopEase</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .product-container {
+            max-width: 1200px;
+            margin: 100px auto 0;
+            padding: 2rem 5%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .product-gallery {
+            position: relative;
+        }
+
+        .main-image {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+
+        .thumbnail-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+
+        .thumbnail {
+            width: 100%;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+
+        .thumbnail:hover {
+            opacity: 0.8;
+        }
+
+        .product-details h1 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .product-price {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .current-price {
+            color: #e74c3c;
+            font-weight: bold;
+            margin-right: 1rem;
+        }
+
+        .original-price {
+            color: #95a5a6;
+            text-decoration: line-through;
+        }
+
+        .product-rating {
+            margin-bottom: 1rem;
+        }
+
+        .product-rating i {
+            color: #f1c40f;
+        }
+
+        .product-rating span {
+            color: #7f8c8d;
+            margin-left: 0.5rem;
+        }
+
+        .product-description {
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .product-options {
+            margin-bottom: 2rem;
+        }
+
+        .option-group {
+            margin-bottom: 1rem;
+        }
+
+        .option-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+
+        .option-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .option-button {
+            padding: 0.5rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .option-button:hover,
+        .option-button.active {
+            border-color: #3498db;
+            color: #3498db;
+        }
+
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .quantity-button {
+            width: 40px;
+            height: 40px;
+            border: 1px solid #ddd;
+            background: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        .quantity-input {
+            width: 60px;
+            height: 40px;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .add-to-cart-button {
+            width: 100%;
+            padding: 1rem;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .add-to-cart-button:hover {
+            background-color: #2980b9;
+        }
+
+        .product-meta {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #ddd;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            color: #7f8c8d;
+        }
+
+        .related-products {
+            padding: 4rem 5%;
+            background-color: #f8f9fa;
+        }
+
+        .related-products h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #2c3e50;
+        }
+
+        @media (max-width: 768px) {
+            .product-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .main-image {
+                height: 300px;
+            }
+
+            .thumbnail-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .thumbnail {
+                height: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>ShopEase</h1>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="shop.html">Shop</a>
+                <a href="categories.html">Categories</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="nav-icons">
+                <a href="search.html"><i class="fas fa-search"></i></a>
+                <a href="account.html"><i class="fas fa-user"></i></a>
+                <a href="cart.html" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="product-container">
+            <div class="product-gallery">
+                <img src="https://via.placeholder.com/600x500" alt="Product Image" class="main-image">
+                <div class="thumbnail-grid">
+                    <img src="https://via.placeholder.com/150x100" alt="Thumbnail 1" class="thumbnail">
+                    <img src="https://via.placeholder.com/150x100" alt="Thumbnail 2" class="thumbnail">
+                    <img src="https://via.placeholder.com/150x100" alt="Thumbnail 3" class="thumbnail">
+                    <img src="https://via.placeholder.com/150x100" alt="Thumbnail 4" class="thumbnail">
+                </div>
+            </div>
+
+            <div class="product-details">
+                <h1>Wireless Noise-Cancelling Headphones</h1>
+                <div class="product-price">
+                    <span class="current-price">$99.99</span>
+                    <span class="original-price">$129.99</span>
+                </div>
+                <div class="product-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span>(4.5 - 128 reviews)</span>
+                </div>
+                <p class="product-description">
+                    Experience premium sound quality with these wireless noise-cancelling headphones. 
+                    Featuring advanced noise-cancellation technology, comfortable ear cushions, and 
+                    long battery life, these headphones are perfect for music lovers and professionals alike.
+                </p>
+
+                <div class="product-options">
+                    <div class="option-group">
+                        <label>Color</label>
+                        <div class="option-buttons">
+                            <button class="option-button active">Black</button>
+                            <button class="option-button">White</button>
+                            <button class="option-button">Blue</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="quantity-selector">
+                    <button class="quantity-button">-</button>
+                    <input type="number" value="1" min="1" class="quantity-input">
+                    <button class="quantity-button">+</button>
+                </div>
+
+                <button class="add-to-cart-button">Add to Cart</button>
+
+                <div class="product-meta">
+                    <div class="meta-item">
+                        <i class="fas fa-truck"></i>
+                        <span>Free shipping on orders over $50</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-undo"></i>
+                        <span>30-day return policy</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>2-year warranty</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="related-products">
+            <h2>Related Products</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/300x300" alt="Related Product 1">
+                        <div class="product-overlay">
+                            <button class="quick-view">Quick View</button>
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Bluetooth Speaker</h3>
+                        <div class="product-price">
+                            <span class="current-price">$79.99</span>
+                            <span class="original-price">$99.99</span>
+                        </div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>(4.0)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/300x300" alt="Related Product 2">
+                        <div class="product-overlay">
+                            <button class="quick-view">Quick View</button>
+                            <button class="add-to-cart">Add to Cart</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Wireless Earbuds</h3>
+                        <div class="product-price">
+                            <span class="current-price">$59.99</span>
+                            <span class="original-price">$79.99</span>
+                        </div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(4.5)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>About Us</h3>
+                    <p>ShopEase is your one-stop destination for all your shopping needs. We offer quality products at competitive prices.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="shipping.html">Shipping Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Shopping St, Retail City</li>
+                        <li><i class="fas fa-phone"></i> +1 234 567 890</li>
+                        <li><i class="fas fa-envelope"></i> info@shopease.com</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Newsletter</h3>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email">
+                        <button type="submit">Subscribe</button>
+                    </form>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 ShopEase. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 

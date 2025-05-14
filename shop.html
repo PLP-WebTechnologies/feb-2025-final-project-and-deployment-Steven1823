@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Woodcraft Shop - Handcrafted Wooden Products</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Simple Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: #f5f5f0;
+            color: #2c1810;
+        }
+
+        /* Animated Header */
+        header {
+            background: linear-gradient(135deg, #2c1810, #4a2c2a);
+            color: #f5f5f0;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            animation: fadeInDown 0.5s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            animation: pulse 2s infinite;
+            font-family: 'Playfair Display', serif;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .nav-links a {
+            color: #f5f5f0;
+            text-decoration: none;
+            margin: 0 15px;
+            padding: 5px 10px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background-color: rgba(255,255,255,0.1);
+            transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #2c1810;
+            font-size: 2.5rem;
+            animation: slideIn 0.5s ease-out;
+            font-family: 'Playfair Display', serif;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.5s ease-out;
+            animation-fill-mode: both;
+            border: 1px solid #e0d6c2;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            padding: 20px;
+            background: linear-gradient(to bottom, #fff, #f9f6f0);
+        }
+
+        .product-name {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #2c1810;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .product-price {
+            color: #8b4513;
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .product-description {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .add-to-cart {
+            background: linear-gradient(135deg, #8b4513, #6b3410);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .add-to-cart:hover {
+            background: linear-gradient(135deg, #6b3410, #8b4513);
+            transform: translateY(-2px);
+        }
+
+        .add-to-cart:active {
+            transform: translateY(0);
+        }
+
+        .add-to-cart::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 5px;
+            height: 5px;
+            background: rgba(255,255,255,0.5);
+            opacity: 0;
+            border-radius: 100%;
+            transform: scale(1, 1) translate(-50%);
+            transform-origin: 50% 50%;
+        }
+
+        .add-to-cart:focus:not(:active)::after {
+            animation: ripple 1s ease-out;
+        }
+
+        @keyframes ripple {
+            0% {
+                transform: scale(0, 0);
+                opacity: 0.5;
+            }
+            100% {
+                transform: scale(20, 20);
+                opacity: 0;
+            }
+        }
+
+        /* Simple Footer */
+        footer {
+            background: linear-gradient(135deg, #2c1810, #4a2c2a);
+            color: #f5f5f0;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 40px;
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(245,245,240,0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .loading.active {
+            display: flex;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #e0d6c2;
+            border-top: 5px solid #8b4513;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 20px;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            .nav-links a {
+                margin: 0 5px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">Woodcraft Shop</div>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="cart.html">Cart</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1>Handcrafted Wooden Products</h1>
+        <div class="products-grid">
+            <!-- Products will be added here by JavaScript -->
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Woodcraft Shop. All rights reserved.</p>
+    </footer>
+
+    <div class="loading">
+        <div class="spinner"></div>
+    </div>
+
+    <script type="module">
+        import { products } from './products.js';
+
+        // Show loading animation
+        function showLoading() {
+            document.querySelector('.loading').classList.add('active');
+        }
+
+        // Hide loading animation
+        function hideLoading() {
+            document.querySelector('.loading').classList.remove('active');
+        }
+
+        // Simple function to display products with animation
+        function displayProducts() {
+            showLoading();
+            const productsContainer = document.querySelector('.products-grid');
+            
+            // Clear existing products
+            productsContainer.innerHTML = '';
+            
+            // Add products with staggered animation
+            products.forEach((product, index) => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card';
+                productCard.style.animationDelay = `${index * 0.1}s`;
+                
+                productCard.innerHTML = `
+                    <img src="${product.image}" alt="${product.name}" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">${product.name}</h3>
+                        <p class="product-price">$${product.price.toFixed(2)}</p>
+                        <p class="product-description">${product.description}</p>
+                        <button class="add-to-cart" onclick="addToCart('${product.id}')">Add to Cart</button>
+                    </div>
+                `;
+                
+                productsContainer.appendChild(productCard);
+            });
+
+            // Hide loading after all products are added
+            setTimeout(hideLoading, 500);
+        }
+
+        // Simple function to add items to cart with animation
+        window.addToCart = function(productId) {
+            const button = event.target;
+            button.style.transform = 'scale(0.95)';
+            
+            setTimeout(() => {
+                button.style.transform = 'scale(1)';
+                
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                const product = products.find(p => p.id === productId);
+                
+                if (product) {
+                    cart.push({
+                        id: product.id,
+                        name: product.name,
+                        price: product.price,
+                        image: product.image
+                    });
+                    
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    
+                    // Show success message
+                    const message = document.createElement('div');
+                    message.textContent = 'Added to cart!';
+                    message.style.cssText = `
+                        position: fixed;
+                        top: 20px;
+                        right: 20px;
+                        background: #8b4513;
+                        color: white;
+                        padding: 15px 25px;
+                        border-radius: 5px;
+                        animation: slideIn 0.3s ease-out, fadeOut 0.3s ease-out 2s forwards;
+                    `;
+                    document.body.appendChild(message);
+                    
+                    setTimeout(() => message.remove(), 2300);
+                }
+            }, 100);
+        };
+
+        // Display products when page loads
+        displayProducts();
+    </script>
+</body>
+</html> 
